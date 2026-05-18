@@ -1,0 +1,132 @@
+// ==========================================
+// About / Team Section Component
+// ==========================================
+@use "sass:map";
+@use "sass:color";
+@use '../base/variables' as *;
+
+.about {
+  padding: map.get($spacing, 'xxl') 0;
+  background-color: color.adjust(#0a0e17, $lightness: -2%);
+  position: relative;
+
+  .about-layout {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'xxl');
+  }
+
+  // --- Bloque Institucional ---
+  .about-institutional {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+    
+    .subtitle {
+      color: map.get($colors, 'accent-orange');
+      margin-bottom: map.get($spacing, 'sm');
+      display: inline-block;
+    }
+    
+    .section-title {
+      margin-bottom: map.get($spacing, 'md');
+    }
+    
+    .about-description {
+      color: map.get($colors, 'text-muted');
+      font-size: 1.15rem;
+      line-height: 1.8;
+      
+      strong {
+        color: map.get($colors, 'text-light');
+        font-weight: 600;
+      }
+    }
+  }
+
+  // --- Bloque del Equipo ---
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: map.get($spacing, 'xl');
+  }
+
+  .team-card {
+    background-color: map.get($colors, 'bg-dark');
+    border: 1px solid rgba(map.get($colors, 'text-light'), 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    
+    .team-img-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+    
+    .team-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(80%) contrast(1.1);
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+    
+    .team-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: map.get($spacing, 'xl') map.get($spacing, 'md') map.get($spacing, 'md');
+      background: linear-gradient(to top, rgba(#0a0e17, 0.95) 0%, rgba(#0a0e17, 0) 100%);
+      transform: translateY(10px);
+      opacity: 0.8;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    
+    .team-name {
+      font-family: map.get($fonts, 'primary');
+      font-size: 1.25rem;
+      color: map.get($colors, 'text-light');
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    
+    .team-role {
+      font-family: map.get($fonts, 'secondary');
+      font-size: 1rem;
+      font-style: italic;
+      color: map.get($colors, 'accent-orange');
+    }
+    
+    // Hover Effects
+    &:hover {
+      .team-img {
+        transform: scale(1.03);
+        filter: grayscale(0%) contrast(1);
+      }
+      
+      .team-info {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      border-color: rgba(map.get($colors, 'primary-guinda'), 0.5);
+    }
+  }
+}
+
+// Responsivo
+@media (max-width: map.get($breakpoints, 'md')) {
+  .about {
+    .about-layout {
+      gap: map.get($spacing, 'xl');
+    }
+    
+    .about-institutional {
+      text-align: left;
+    }
+  }
+}
