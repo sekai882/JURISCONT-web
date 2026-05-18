@@ -1,41 +1,28 @@
 // ==========================================
 // Tokens de Diseño: Juriscont Corporativo
 // ==========================================
+@use "sass:map";
 
 // --- Paleta de Colores ---
-// Estilo: Dark Theme / Oscuro Elegante
 $colors: (
-  // Fondos principales y héroes (Azul petróleo muy profundo / Casi negro)
   'bg-dark': #0a0e17,
-  
-  // Acentos principales y llamadas a la acción (Naranja vibrante del logo)
   'accent-orange': #f37021,
-  
-  // Acentos secundarios y superposiciones (Café/Guinda oscuro del logo)
   'primary-guinda': #5c2027,
-  
-  // Textos y legibilidad sobre fondos oscuros (Blanco o gris muy claro)
   'text-light': #f5f6f8,
   'text-muted': #a0a5b0
 );
 
 // Variables directas para facilidad de uso
-$color-bg-dark: map-get($colors, 'bg-dark');
-$color-accent-orange: map-get($colors, 'accent-orange');
-$color-primary-guinda: map-get($colors, 'primary-guinda');
-$color-text-light: map-get($colors, 'text-light');
-$color-text-muted: map-get($colors, 'text-muted');
+$color-bg-dark: map.get($colors, 'bg-dark');
+$color-accent-orange: map.get($colors, 'accent-orange');
+$color-primary-guinda: map.get($colors, 'primary-guinda');
+$color-text-light: map.get($colors, 'text-light');
+$color-text-muted: map.get($colors, 'text-muted');
 
 // --- Tipografía ---
-// Fuentes de Google Fonts
 $fonts: (
-  // Títulos principales (Sans-serif fuerte y geométrica)
   'primary': ('Montserrat', sans-serif),
-  
-  // Acentos y subtítulos elegantes (Serif elegante)
   'secondary': ('Playfair Display', serif),
-  
-  // Cuerpo de texto
   'body': ('Open Sans', sans-serif)
 );
 

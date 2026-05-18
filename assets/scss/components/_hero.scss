@@ -1,6 +1,8 @@
 // ==========================================
 // Hero Section Component
 // ==========================================
+@use "sass:map";
+@use '../base/variables' as *;
 
 .hero {
   position: relative;
@@ -29,21 +31,21 @@
   .subtitle {
     display: block;
     font-size: 1.2rem;
-    margin-bottom: map-get($spacing, 'sm');
+    margin-bottom: map.get($spacing, 'sm');
     color: $color-accent-orange; 
   }
   
   .hero-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.1;
-    margin-bottom: map-get($spacing, 'md');
+    margin-bottom: map.get($spacing, 'md');
     text-shadow: 0 4px 15px rgba(0,0,0,0.6);
   }
   
   .hero-description {
     font-size: 1.1rem;
     color: $color-text-muted;
-    margin-bottom: map-get($spacing, 'xl');
+    margin-bottom: map.get($spacing, 'xl');
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -51,7 +53,7 @@
   
   .hero-actions {
     display: flex;
-    gap: map-get($spacing, 'md');
+    gap: map.get($spacing, 'md');
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -70,7 +72,7 @@
 }
 
 // Responsivo
-@media (max-width: map-get($breakpoints, 'sm')) {
+@media (max-width: map.get($breakpoints, 'sm')) {
   .hero {
     min-height: auto;
     padding: 150px 0 100px 0;

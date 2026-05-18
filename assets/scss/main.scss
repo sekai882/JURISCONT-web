@@ -1,13 +1,11 @@
 // ==========================================
 // Archivo Principal SCSS: Juriscont
 // ==========================================
-
-// 1. Base (Tokens, Variables, Funciones, Mixins)
-@import 'base/variables';
-
-// 2. Componentes
-@import 'components/header';
-@import 'components/hero';
+@use "sass:color";
+@use "sass:map";
+@use 'base/variables' as *;
+@use 'components/header';
+@use 'components/hero';
 
 // 3. Reseteo y Estilos Globales
 * {
@@ -17,7 +15,7 @@
 }
 
 body {
-  font-family: map-get($fonts, 'body');
+  font-family: map.get($fonts, 'body');
   background-color: $color-bg-dark;
   color: $color-text-light;
   line-height: 1.6;
@@ -25,19 +23,19 @@ body {
 
 .container {
   width: 100%;
-  max-width: map-get($breakpoints, 'xl');
+  max-width: map.get($breakpoints, 'xl');
   margin: 0 auto;
-  padding: 0 map-get($spacing, 'md');
+  padding: 0 map.get($spacing, 'md');
 }
 
 h1, h2, h3 {
-  font-family: map-get($fonts, 'primary');
+  font-family: map.get($fonts, 'primary');
   font-weight: 700;
   color: $color-text-light;
 }
 
 .subtitle {
-  font-family: map-get($fonts, 'secondary');
+  font-family: map.get($fonts, 'secondary');
   font-style: italic;
   color: $color-text-muted;
 }
@@ -48,7 +46,7 @@ a {
   transition: color 0.3s ease;
 
   &:hover {
-    color: lighten($color-accent-orange, 10%);
+    color: color.adjust($color-accent-orange, $lightness: 10%);
   }
 }
 
@@ -57,8 +55,8 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: map-get($spacing, 'sm') map-get($spacing, 'lg');
-  font-family: map-get($fonts, 'primary');
+  padding: map.get($spacing, 'sm') map.get($spacing, 'lg');
+  font-family: map.get($fonts, 'primary');
   font-weight: 600;
   border-radius: 50px;
   text-decoration: none;
@@ -67,7 +65,7 @@ a {
   border: 2px solid transparent;
 
   &.btn-sm {
-    padding: map-get($spacing, 'xs') map-get($spacing, 'sm');
+    padding: map.get($spacing, 'xs') map.get($spacing, 'sm');
     font-size: 0.9rem;
   }
 
@@ -76,7 +74,7 @@ a {
     color: #fff;
     
     &:hover {
-      background-color: darken($color-accent-orange, 10%);
+      background-color: color.adjust($color-accent-orange, $lightness: -10%);
       color: #fff;
       transform: translateY(-2px);
     }
