@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .header {
   position: fixed;
   top: 0;
@@ -162,10 +163,22 @@
   align-items: center;
   justify-content: center;
   padding-top: 100px;
-  background-image: linear-gradient(to bottom, rgba(10, 14, 23, 0.7), rgba(10, 14, 23, 0.95)), url("https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+  background: linear-gradient(135deg, #080E14 0%, rgb(35.2419354839, 12.2580645161, 14.939516129) 100%);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  opacity: 0.15;
+  mix-blend-mode: multiply;
+  z-index: 1;
 }
 .hero .hero-content {
   position: relative;
@@ -176,23 +189,29 @@
 }
 .hero .subtitle {
   display: block;
-  font-size: 1.2rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-style: italic;
   margin-bottom: 1rem;
-  color: #f37021;
+  color: rgb(227.3153846154, 147.6980952381, 99.6846153846);
 }
 .hero .hero-title {
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: 1px;
   line-height: 1.1;
   margin-bottom: 1.5rem;
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
 }
 .hero .hero-description {
   font-size: 1.1rem;
-  color: #a0a5b0;
+  color: #f5f6f8;
+  opacity: 0.9;
   margin-bottom: 3rem;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.8;
 }
 .hero .hero-actions {
   display: flex;
@@ -224,6 +243,68 @@
     width: 100%;
   }
 }
+.services {
+  padding: 5rem 0;
+  background-color: #0a0e17;
+  position: relative;
+  z-index: 2;
+}
+.services .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.services .service-card {
+  background-color: rgb(12.3714285714, 21.65, 30.9285714286);
+  border: 1px solid rgba(92, 32, 39, 0.5);
+  padding: 2rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.services .service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background-color: #f37021;
+  transition: height 0.3s ease;
+}
+.services .service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(92, 32, 39, 0.8);
+}
+.services .service-card:hover::before {
+  height: 100%;
+}
+.services .service-card:hover .service-number {
+  color: #f37021;
+}
+.services .service-number {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-style: italic;
+  color: rgba(245, 246, 248, 0.2);
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+.services .service-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+.services .service-text {
+  color: #a0a5b0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -265,6 +346,24 @@ a:hover {
   color: rgb(245.6153846154, 143.1666666667, 81.3846153846);
 }
 
+/* --- Títulos de Sección Globales --- */
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.section-description {
+  color: #a0a5b0;
+  font-size: 1.1rem;
+}
+
 /* --- Botones (Globales) --- */
 .btn {
   display: inline-flex;
@@ -277,7 +376,7 @@ a:hover {
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 }
 .btn.btn-sm {
   padding: 0.5rem 1rem;
@@ -291,15 +390,16 @@ a:hover {
   background-color: rgb(213.4615384615, 87.5, 11.5384615385);
   color: #fff;
   transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(243, 112, 33, 0.4);
 }
 .btn.btn-outline {
   background-color: transparent;
   color: #f5f6f8;
-  border-color: rgba(245, 246, 248, 0.5);
+  border: 1px solid rgba(245, 246, 248, 0.3);
 }
 .btn.btn-outline:hover {
-  background-color: rgba(245, 246, 248, 0.1);
-  border-color: #f5f6f8;
+  background-color: rgba(245, 246, 248, 0.05);
+  border-color: rgba(245, 246, 248, 0.6);
   transform: translateY(-2px);
 }
 

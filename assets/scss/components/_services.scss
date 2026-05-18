@@ -1,0 +1,77 @@
+// ==========================================
+// Services Section Component
+// ==========================================
+@use "sass:map";
+@use "sass:color";
+@use '../base/variables' as *;
+
+.services {
+  padding: map.get($spacing, 'xxl') 0;
+  background-color: map.get($colors, 'bg-dark');
+  position: relative;
+  z-index: 2;
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: map.get($spacing, 'lg');
+    margin-top: map.get($spacing, 'xl');
+  }
+
+  .service-card {
+    background-color: color.adjust(#080E14, $lightness: 3%); // Gris azulado extremadamente oscuro
+    border: 1px solid rgba(map.get($colors, 'primary-guinda'), 0.5);
+    padding: map.get($spacing, 'lg');
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background-color: map.get($colors, 'accent-orange');
+      transition: height 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border-color: rgba(map.get($colors, 'primary-guinda'), 0.8);
+      
+      &::before {
+        height: 100%;
+      }
+
+      .service-number {
+        color: map.get($colors, 'accent-orange');
+      }
+    }
+  }
+
+  .service-number {
+    display: block;
+    font-family: map.get($fonts, 'secondary');
+    font-size: 2rem;
+    font-style: italic;
+    color: rgba(map.get($colors, 'text-light'), 0.2);
+    margin-bottom: map.get($spacing, 'sm');
+    transition: color 0.3s ease;
+  }
+
+  .service-title {
+    font-size: 1.25rem;
+    margin-bottom: map.get($spacing, 'sm');
+    letter-spacing: 0.5px;
+  }
+
+  .service-text {
+    color: map.get($colors, 'text-muted');
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}

@@ -6,6 +6,7 @@
 @use 'base/variables' as *;
 @use 'components/header';
 @use 'components/hero';
+@use 'components/services';
 
 // 3. Reseteo y Estilos Globales
 * {
@@ -50,6 +51,24 @@ a {
   }
 }
 
+/* --- Títulos de Sección Globales --- */
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  margin-bottom: map.get($spacing, 'sm');
+  letter-spacing: 0.5px;
+}
+
+.section-description {
+  color: map.get($colors, 'text-muted');
+  font-size: 1.1rem;
+}
+
 /* --- Botones (Globales) --- */
 .btn {
   display: inline-flex;
@@ -62,7 +81,7 @@ a {
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 
   &.btn-sm {
     padding: map.get($spacing, 'xs') map.get($spacing, 'sm');
@@ -77,17 +96,18 @@ a {
       background-color: color.adjust($color-accent-orange, $lightness: -10%);
       color: #fff;
       transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(map.get($colors, 'accent-orange'), 0.4);
     }
   }
 
   &.btn-outline {
     background-color: transparent;
     color: $color-text-light;
-    border-color: rgba($color-text-light, 0.5);
+    border: 1px solid rgba(map.get($colors, 'text-light'), 0.3); // Borde ultrafino
     
     &:hover {
-      background-color: rgba($color-text-light, 0.1);
-      border-color: $color-text-light;
+      background-color: rgba(map.get($colors, 'text-light'), 0.05); // Fondo interactivo sutil
+      border-color: rgba(map.get($colors, 'text-light'), 0.6);
       transform: translateY(-2px);
     }
   }
