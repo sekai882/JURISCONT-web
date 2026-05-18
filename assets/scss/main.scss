@@ -5,7 +5,11 @@
 // 1. Base (Tokens, Variables, Funciones, Mixins)
 @import 'base/variables';
 
-// 2. Reseteo y Estilos Globales
+// 2. Componentes
+@import 'components/header';
+@import 'components/hero';
+
+// 3. Reseteo y Estilos Globales
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +21,13 @@ body {
   background-color: $color-bg-dark;
   color: $color-text-light;
   line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: map-get($breakpoints, 'xl');
+  margin: 0 auto;
+  padding: 0 map-get($spacing, 'md');
 }
 
 h1, h2, h3 {
@@ -38,5 +49,48 @@ a {
 
   &:hover {
     color: lighten($color-accent-orange, 10%);
+  }
+}
+
+/* --- Botones (Globales) --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: map-get($spacing, 'sm') map-get($spacing, 'lg');
+  font-family: map-get($fonts, 'primary');
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  &.btn-sm {
+    padding: map-get($spacing, 'xs') map-get($spacing, 'sm');
+    font-size: 0.9rem;
+  }
+
+  &.btn-primary {
+    background-color: $color-accent-orange;
+    color: #fff;
+    
+    &:hover {
+      background-color: darken($color-accent-orange, 10%);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+  }
+
+  &.btn-outline {
+    background-color: transparent;
+    color: $color-text-light;
+    border-color: rgba($color-text-light, 0.5);
+    
+    &:hover {
+      background-color: rgba($color-text-light, 0.1);
+      border-color: $color-text-light;
+      transform: translateY(-2px);
+    }
   }
 }

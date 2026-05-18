@@ -1,0 +1,191 @@
+// ==========================================
+// Header & Navbar Component
+// ==========================================
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+
+  // Efecto al hacer scroll (añadido por JS)
+  &.scrolled {
+    .top-bar {
+      display: none;
+    }
+    .navbar {
+      background-color: rgba($color-bg-dark, 0.95);
+      padding: map-get($spacing, 'xs') 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+  }
+}
+
+// Top Bar
+.top-bar {
+  background-color: $color-bg-dark;
+  color: $color-text-muted;
+  font-size: 0.85rem;
+  padding: map-get($spacing, 'xs') 0;
+  border-bottom: 1px solid rgba($color-text-light, 0.05);
+  transition: all 0.3s ease;
+  
+  .top-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+// Navbar
+.navbar {
+  background-color: rgba($color-bg-dark, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba($color-text-light, 0.05);
+  padding: map-get($spacing, 'sm') 0;
+  transition: all 0.3s ease;
+  
+  .navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-family: map-get($fonts, 'primary');
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $color-text-light;
+    letter-spacing: 1px;
+    
+    span {
+      color: $color-primary-guinda;
+    }
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: map-get($spacing, 'lg');
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: map-get($spacing, 'md');
+    
+    a {
+      color: $color-text-light;
+      font-weight: 600;
+      position: relative;
+      font-size: 0.95rem;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: $color-accent-orange;
+        transition: width 0.3s ease;
+      }
+      
+      &:hover {
+        color: $color-accent-orange;
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1001;
+    
+    span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: $color-text-light;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    &.active {
+      span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+// Responsivo
+@media (max-width: map-get($breakpoints, 'md')) {
+  .top-bar {
+    display: none; // Ocultar en móviles
+  }
+  
+  .navbar {
+    .menu-toggle {
+      display: flex;
+    }
+    
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: $color-bg-dark;
+      flex-direction: column;
+      padding: 80px map-get($spacing, 'lg') map-get($spacing, 'lg');
+      box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+      transition: right 0.3s ease;
+      
+      &.active {
+        right: 0;
+      }
+    }
+    
+    .nav-links {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      gap: map-get($spacing, 'md');
+      margin-bottom: map-get($spacing, 'lg');
+      
+      a {
+        font-size: 1.1rem;
+      }
+    }
+    
+    .btn {
+      width: 100%;
+    }
+  }
+}
