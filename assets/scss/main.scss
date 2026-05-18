@@ -1,0 +1,42 @@
+// ==========================================
+// Archivo Principal SCSS: Juriscont
+// ==========================================
+
+// 1. Base (Tokens, Variables, Funciones, Mixins)
+@import 'base/variables';
+
+// 2. Reseteo y Estilos Globales
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: map-get($fonts, 'body');
+  background-color: $color-bg-dark;
+  color: $color-text-light;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: map-get($fonts, 'primary');
+  font-weight: 700;
+  color: $color-text-light;
+}
+
+.subtitle {
+  font-family: map-get($fonts, 'secondary');
+  font-style: italic;
+  color: $color-text-muted;
+}
+
+a {
+  color: $color-accent-orange;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: lighten($color-accent-orange, 10%);
+  }
+}
