@@ -1,0 +1,143 @@
+// ==========================================
+// Contact Section Component
+// ==========================================
+@use "sass:map";
+@use "sass:color";
+@use '../base/variables' as *;
+
+.contact {
+  padding: map.get($spacing, 'xxl') 0;
+  background-color: color.adjust(#0a0e17, $lightness: 2%);
+
+  .section-header {
+    margin-bottom: map.get($spacing, 'xl');
+    
+    .subtitle {
+      color: map.get($colors, 'accent-orange');
+      display: inline-block;
+      margin-bottom: map.get($spacing, 'sm');
+    }
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: map.get($spacing, 'xxl');
+  }
+
+  // --- Formulario Minimalista ---
+  .contact-form-wrapper {
+    background-color: map.get($colors, 'bg-dark');
+    padding: map.get($spacing, 'xl');
+    border-radius: 4px;
+    border: 1px solid rgba(map.get($colors, 'text-light'), 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'md');
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      color: map.get($colors, 'text-muted');
+      margin-bottom: 5px;
+      font-family: map.get($fonts, 'secondary');
+      letter-spacing: 0.5px;
+    }
+
+    .form-control {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(map.get($colors, 'text-light'), 0.2);
+      color: map.get($colors, 'text-light');
+      font-family: map.get($fonts, 'body');
+      font-size: 1rem;
+      padding: 8px 0;
+      transition: border-color 0.3s ease;
+
+      &::placeholder {
+        color: rgba(map.get($colors, 'text-light'), 0.15);
+      }
+
+      &:focus {
+        outline: none;
+        border-bottom-color: map.get($colors, 'accent-orange');
+      }
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn {
+      margin-top: map.get($spacing, 'sm');
+      align-self: flex-start;
+    }
+  }
+
+  // --- Información y Mapa ---
+  .contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'lg');
+  }
+
+  .contact-info-block {
+    .contact-info-title {
+      font-family: map.get($fonts, 'secondary');
+      font-size: 1.3rem;
+      color: map.get($colors, 'text-light');
+      margin-bottom: map.get($spacing, 'xs');
+      font-style: italic;
+    }
+
+    .contact-info-text {
+      color: map.get($colors, 'text-muted');
+      line-height: 1.6;
+    }
+
+    .contact-link {
+      color: map.get($colors, 'accent-orange');
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: color.adjust(map.get($colors, 'accent-orange'), $lightness: 10%);
+      }
+    }
+  }
+
+  .contact-map {
+    width: 100%;
+    margin-top: map.get($spacing, 'sm');
+
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+}
+
+// Responsivo
+@media (max-width: map.get($breakpoints, 'md')) {
+  .contact {
+    .contact-grid {
+      gap: map.get($spacing, 'xl');
+    }
+    
+    .contact-form-wrapper {
+      padding: map.get($spacing, 'lg');
+    }
+  }
+}

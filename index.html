@@ -159,17 +159,86 @@
             </div>
         </section>
 
-        <!-- Placeholder para Contacto -->
+        <!-- Contacto Section -->
         <section class="contact" id="contacto">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Estamos a su servicio</span>
+                    <h2 class="section-title">Consulte su caso con especialistas</h2>
+                    <p class="section-description">Agende una cita con nuestro equipo de profesionales. Nos pondremos en contacto a la brevedad posible.</p>
+                </div>
 
+                <div class="contact-grid">
+                    <!-- Formulario de Contacto -->
+                    <div class="contact-form-wrapper">
+                        <form action="#" method="POST" class="contact-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Nombre Completo</label>
+                                <input type="text" id="name" name="name" class="form-control" required placeholder="Ingrese su nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" class="form-control" required placeholder="Ingrese su correo">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Teléfono</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required placeholder="Ingrese su número de teléfono">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Mensaje o Consulta</label>
+                                <textarea id="message" name="message" class="form-control" rows="4" required placeholder="Describa brevemente su caso"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar Consulta</button>
+                        </form>
+                    </div>
+
+                    <!-- Información y Mapa -->
+                    <div class="contact-info-wrapper">
+                        <div class="contact-info-block">
+                            <h3 class="contact-info-title">Sede Principal</h3>
+                            <p class="contact-info-text">
+                                Av. Antonio José de Sucre entre El Oro y José María Ollagüe<br>
+                                Santa Rosa, El Oro
+                            </p>
+                        </div>
+                        <div class="contact-info-block">
+                            <h3 class="contact-info-title">Correo Corporativo</h3>
+                            <p class="contact-info-text">
+                                <a href="mailto:juriscont-corporativo@gmail.com" class="contact-link">juriscont-corporativo@gmail.com</a>
+                            </p>
+                        </div>
+                        
+                        <div class="contact-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15934.457814894294!2d-79.9675231!3d-3.4475518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x90333d84fbc9fc4b%3A0xc0fb1df8a9792621!2sSanta%20Rosa%2C%20Ecuador!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <!-- =========================
          FOOTER
     ========================== -->
-    <footer>
-        <!-- Placeholder para el pie de página -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-emergencies">
+                <h3 class="emergencies-title">Líneas de Emergencia 24/7</h3>
+                <div class="emergencies-links">
+                    <a href="tel:0994259107" class="emergency-link">0994259107</a>
+                    <span class="divider">|</span>
+                    <a href="tel:0986556806" class="emergency-link">0986556806</a>
+                    <span class="divider">|</span>
+                    <a href="tel:0968837463" class="emergency-link">0968837463</a>
+                    <span class="divider">|</span>
+                    <a href="tel:0999521388" class="emergency-link">0999521388</a>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2026 Juriscont Corporativo. Todos los derechos reservados. Desarrollado por Josue Mullo.</p>
+            </div>
+        </div>
     </footer>
 
     <!-- Scripts -->

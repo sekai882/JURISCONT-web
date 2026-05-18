@@ -1,0 +1,79 @@
+// ==========================================
+// Footer Section Component
+// ==========================================
+@use "sass:map";
+@use "sass:color";
+@use '../base/variables' as *;
+
+.footer {
+  background-color: map.get($colors, 'bg-dark');
+  padding: map.get($spacing, 'xl') 0 map.get($spacing, 'lg');
+  border-top: 1px solid rgba(map.get($colors, 'primary-guinda'), 0.5);
+  text-align: center;
+
+  // Bloque de Emergencias
+  .footer-emergencies {
+    margin-bottom: map.get($spacing, 'xl');
+    padding-bottom: map.get($spacing, 'xl');
+    border-bottom: 1px solid rgba(map.get($colors, 'text-light'), 0.05);
+    
+    .emergencies-title {
+      font-family: map.get($fonts, 'secondary');
+      font-style: italic;
+      font-size: 1.5rem;
+      color: map.get($colors, 'text-light');
+      margin-bottom: map.get($spacing, 'md');
+    }
+
+    .emergencies-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: map.get($spacing, 'md');
+    }
+
+    .emergency-link {
+      font-family: map.get($fonts, 'primary');
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: map.get($colors, 'text-light');
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+
+      &:hover {
+        color: map.get($colors, 'accent-orange');
+        transform: translateY(-2px);
+      }
+    }
+
+    .divider {
+      color: rgba(map.get($colors, 'text-light'), 0.2);
+    }
+  }
+
+  // Derechos de Autor
+  .footer-copyright {
+    p {
+      color: rgba(map.get($colors, 'text-light'), 0.4);
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+// Responsivo
+@media (max-width: map.get($breakpoints, 'sm')) {
+  .footer {
+    .footer-emergencies {
+      .emergencies-links {
+        flex-direction: column;
+        gap: map.get($spacing, 'sm');
+      }
+      
+      .divider {
+        display: none;
+      }
+    }
+  }
+}
